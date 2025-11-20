@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 
 # URL of your Render server
-SERVER_URL = "https://gps-render-1-5wka.onrender.com/update"
+SERVER_URL = "https://gps-render-2.onrender.com/update"
 UPDATE_INTERVAL = 2.0  # seconds
 
 def main():
