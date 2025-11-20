@@ -1,0 +1,33 @@
+update : 
+sudo apt update
+sudo apt install gpsd gpsd-clients python3-gps -y
+
+
+After reboot confirm:
+ls -l /dev/serial*
+
+You MUST see:
+/dev/serial0 → /dev/ttyAMA0
+
+//if not /dev/ttyAMA0 do this : 
+//edit para maging AMA0
+sudo nano /boot/firmware/config.txt
+enable_uart=1
+dtoverlay=miniuart-bt
+sudo reboot
+
+sudo nano /boot/firmware/cmdline.txt
+REMOVE any:
+console=serial0,115200
+dapat console = tty1 lang 
+sudo reboot
+
+check manuallly : 
+sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+cgps -s
+
+
+How to run : 
+cd /home/dsa/gps-render
+python3 pi_client..py 
+https://gps-render-1-5wka.onrender.com/
